@@ -5,25 +5,18 @@ import java.util.stream.Collectors;
 
 class Solution {
     public static List<Integer> sortList(List<Integer> unsortedList) {
-        // WRITE YOUR BRILLIANT CODE HERE
-        // find the mid of the list
-        if (unsortedList == null || unsortedList.size() == 0) {
-            return List.of();
-        }
-        
-        // get mid of the list
-        int mid = list.size() / 2;
-        int midVal = list.get(mid);
-        
-        // make sure
         for (int i = 0; i < unsortedList.size(); i++) {
-            int val = unsortedList.get(i);
-            if (val <= midVal) continue;
-            if (val > midVal) {
-            
+            int current = i;
+            // gets the smallest element and inserts at current index 
+            while (current > 0 && unsortedList.get(current) < unsortedList.get(current - 1)) {
+                int temp = unsortedList.get(current);
+                // swaps current smaller element with the element before it
+                unsortedList.set(current, unsortedList.get(current - 1));
+                unsortedList.set(current - 1, temp);
+                current--;
             }
         }
-        return List.of();
+        return unsortedList;
     }
 
     public static List<String> splitWords(String s) {
